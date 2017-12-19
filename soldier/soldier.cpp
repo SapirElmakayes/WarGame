@@ -1,12 +1,12 @@
 #include <iostream>
 
 #include "soldier.h"
-#include "point.h"
 
 Soldier::Soldier() 
 	: _life(0)
 	, _speed(0)
-	, _attackCapability(0) {
+	, _attackCapability(0)
+	, _isAlive(true) {
 }
 
 void Soldier::walk(const Point& destination) {
@@ -17,3 +17,8 @@ void Soldier::walk(const Point& destination) {
 
 	//TODO::add walk
 }
+
+void Soldier::attack(const Point& attackdestination) {
+	
+}
+

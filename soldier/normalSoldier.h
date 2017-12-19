@@ -1,8 +1,8 @@
 #pragma once
 
-class RegularSoldier : public Soldier{
+class NormalSoldier : public Soldier{
 public:
-	RegularSoldier(const Point& location);
+	NormalSoldier(const Point& location);
 	void attack(const Point& attackdestination);
 	void run(const Point& location);
 

@@ -1,4 +1,6 @@
 #pragma once
+#include "../soldier/soldier.h"
+
 
 // This is an enum that relate to the current player types
 enum class PlayerTypes {
@@ -8,7 +10,8 @@ enum class PlayerTypes {
 
 // This is an enum that relate to the Strategy
 enum class Strategy {
-	A = 0,
+	NoStrategy = 0,
+	A,
 	B
 };
 
@@ -19,7 +22,7 @@ public:
 	virtual ~Player();
 
 private:
-	Soldiers _soldiers;
+	Soldier* _soldiers;
 	PlayerTypes _type;
 	Strategy _strategy;
 };

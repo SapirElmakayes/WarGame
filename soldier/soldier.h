@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../game/point.h"
+
 class Soldier {
 public:
 	Soldier();
@@ -11,4 +13,5 @@ protected:
 	int _life;
 	int _speed;
 	double _attackCapability;	
+	bool _isAlive;
 };

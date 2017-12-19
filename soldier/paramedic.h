@@ -1,8 +1,8 @@
 #pragma once
 
-class NurseSoldier : public Soldier{
+class ParamedicSoldier : public Soldier{
 public:
-	NurseSoldier(const Point& location);
+	ParamedicSoldier(const Point& location);
 	void attack(const Point& attackdestination);
 
 private:
