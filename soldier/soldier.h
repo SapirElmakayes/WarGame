@@ -4,14 +4,15 @@
 
 class Soldier {
 public:
-	Soldier();
+	Soldier(const Point& location);
+	Soldier(const Point& location, int life, int rad, double attackCapability, bool isAlive);
 	void walk(const Point& destination);
-	void attack(const Point& attackdestination) =0;
+	void attack(const Point& attackdestination);
 
 protected:
 	Point _myLocation;
 	int _life;
-	int _speed;
+	int _radius;
 	double _attackCapability;	
 	bool _isAlive;
 };
