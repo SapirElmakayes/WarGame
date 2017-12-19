@@ -3,8 +3,8 @@
 class Soldier {
 public:
 	Soldier();
-	void walk(const& Point destination);
-	void attack(const& Point attackdestination) =0;
+	void walk(const Point& destination);
+	void attack(const Point& attackdestination) =0;
 
 protected:
 	Point _myLocation;

@@ -2,8 +2,8 @@
 
 class NurseSoldier : public Soldier{
 public:
-	NurseSoldier(const& Point location);
-	void attack(const& Point attackdestination);
+	NurseSoldier(const Point& location);
+	void attack(const Point& attackdestination);
 
 private:
 	Point _myLocation;

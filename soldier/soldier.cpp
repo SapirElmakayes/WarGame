@@ -9,7 +9,7 @@ Soldier::Soldier()
 	, _attackCapability(0) {
 }
 
-void Soldier::walk(const& Point destination) {
+void Soldier::walk(const Point& destination) {
 	int mySpeed = _speed;
 	if(_life < 30) {
 		mySpeed = mySpeed / 2;
