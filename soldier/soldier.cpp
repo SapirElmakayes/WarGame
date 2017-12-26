@@ -3,22 +3,23 @@
 
 #include "soldier.h"
 
-Soldier::Soldier(const Point& location) 
+Soldier::Soldier(const Point2d& location) 
 	: _myLocation(location)
 	, _life(0)
 	, _radius(0)
-	, _attackCapability(0)
-	, _isAlive(true) {
+	, _attackCapability(0) {}
+
+Soldier(const Point2d& location, int life, int rad, std::string name)
+	: _myLocation(location), _life(life), _radius(rad), _weapson(nullptr), _nameOfArmy(name){ 
 }
 
-Soldier::Soldier(const Point& location, int life, int rad, double attackCapability, bool isAlive)
-	: _myLocation(location)
-	, _life(life)
-	, _radius(rad)
-	, _attackCapability(attackCapability)
-	, _isAlive(isAlive) {
+Soldier(const Point2d& location, int life, int rad, Weapons* weapson, std::string name)
+	: _myLocation(location), _life(life), _radius(rad), _weapson(weapson), _nameOfArmy(name){ 
 }
 
+void Soldier::setIsAlive(bool isAlive){
+	_isAlive=isAlive;
+}
 
 void Soldier::walk(const Point& destination) {
 	int myRad = _radius;
@@ -26,7 +27,7 @@ void Soldier::walk(const Point& destination) {
 		myRad = myRad / 2;
 	}
 
-	Point vec(destination.getX() - _myLocation.getX(), destination.getY() - _myLocation.getY());
+	Point2d vec(destination.getX() - _myLocation.getX(), destination.getY() - _myLocation.getY());
 	double vecSize = sqrt(pow(vec.getX(), 2) + pow(vec.getY(), 2));
 	
 	if(vecSize <= myRad) {

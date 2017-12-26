@@ -3,12 +3,12 @@
 
 #include "normalSoldier.h"
 
-NormalSoldier::NormalSoldier(const Point& location)
-	: Soldier(location, 100, 2, 0, true) {
+NormalSoldier::NormalSoldier(const Point2d& location, Weapons& weapson, std::string name)
+	: Soldier(location, _life, _radius, weapson, name) {
 }
 
 
-void NormalSoldier::walk(const Point& destination) {
+void NormalSoldier::walk(const Point2d& destination) {
 	int myRad = _radius;
 	if(_life < 30) {
 		myRad = myRad / 2;
@@ -38,7 +38,7 @@ void NormalSoldier::walk(const Point& destination) {
 }
 
 
-bool NormalSoldier::attack(const Point& attackdestination) {
+bool NormalSoldier::attack(const Point2d& attackdestination) {
 	Point vec(attackdestination.getX() - _myLocation.getX(), attackdestination.getY() - _myLocation.getY());
 	double vecSize = sqrt(pow(vec.getX(), 2) + pow(vec.getY(), 2));
 

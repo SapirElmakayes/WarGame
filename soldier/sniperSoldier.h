@@ -4,10 +4,12 @@
 
 
 class SniperSoldier : public Soldier{
-public:
-	SniperSoldier(const Point& location);
-	bool attack(const Point& attackdestination);
 
-private:
+static int _life=80;
+static int _radius=2;
+
+public:
+	SniperSoldier(const Point2d& location, Weapons& weapson, std::string name);
+	bool attack(const Point2d& attackdestination);
 
 };

@@ -2,13 +2,12 @@
 
 #include "paramedicSoldier.h"
 
-ParamedicSoldier::ParamedicSoldier(const Point& location)
-	: Soldier(location, 120, 4, 0, true) {
-
+ParamedicSoldier::ParamedicSoldier(const Point2d& location, std::string name)
+	: Soldier(location, _life, _radius, name){
 }
 
 
-void ParamedicSoldier::attack(const Point& attackdestination) {
+void ParamedicSoldier::attack(const Point2d& attackdestination) {
 	_life = _life - 10;
 	//TODO: attack
 }
