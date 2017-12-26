@@ -38,6 +38,14 @@ void NormalSoldier::walk(const Point& destination) {
 }
 
 
-void NormalSoldier::attack(const Point& attackdestination) {
-	//TODO: attack
+bool NormalSoldier::attack(const Point& attackdestination) {
+	Point vec(attackdestination.getX() - _myLocation.getX(), attackdestination.getY() - _myLocation.getY());
+	double vecSize = sqrt(pow(vec.getX(), 2) + pow(vec.getY(), 2));
+
+	double r = ((double) rand() / (RAND_MAX));
+
+	if(r <= 1 / vecSize) {
+		return true;
+	} 
+	return false;
 }

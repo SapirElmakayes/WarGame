@@ -7,7 +7,7 @@ public:
 	Soldier(const Point& location);
 	Soldier(const Point& location, int life, int rad, double attackCapability, bool isAlive);
 	void walk(const Point& destination);
-	void attack(const Point& attackdestination);
+	bool attack(const Point& attackdestination);
 
 protected:
 	Point _myLocation;

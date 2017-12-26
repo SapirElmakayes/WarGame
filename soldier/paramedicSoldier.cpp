@@ -14,5 +14,5 @@ void ParamedicSoldier::attack(const Point& attackdestination) {
 }
 
 void ParamedicSoldier::toHandle() {
-	//TODO
+
 }
