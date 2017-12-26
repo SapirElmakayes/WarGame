@@ -4,8 +4,8 @@
 
 // This is an enum that relate to the current player types
 enum class PlayerTypes {
-	Computer = 0,
-	Human
+	computer = 0,
+	human
 };
 
 // This is an enum that relate to the Strategy
