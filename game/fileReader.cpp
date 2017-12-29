@@ -34,7 +34,7 @@ void FileReader::visit(Game *game) {
             this->_height = stoi(vec[1]); //CHANGE
             this->_width = stoi(vec[2]); //CHANGE
             if(this->_width >= 0 && this->_height >= 0) {
-                game->setArea(height, width);
+                game->setMap(height, width);
             } else {
                 throw invalid_argument("uncorrect size");
             }
@@ -90,7 +90,7 @@ void FileReader::visit(Game *game) {
             if(currentPlayer > 0) {
                 players[currentPlayer - 1]->setNormalSoldier(*newN); //add
             }
-            game->getArea().addNewSoldier(*newN); //change
+            game->getArea().addSoldier(*newN); //change
         } else if(current == "sniper") {
             Point2d* location = locationToPoint(vec[1]);
             Weapon* weapon_name = getWeapon(vec[2]);
@@ -99,7 +99,7 @@ void FileReader::visit(Game *game) {
             if(currentPlayer > 0) {
                 players[currentPlayer - 1]->setNewSniper(*newS);
             }
-            game->getArea().addNewSoldier(*newS);
+            game->getMap().addSoldier(*newS);
         } else if(current == "paramedic") {
             Point2d* location = locationToPoint(vec[1]);
             string army_name = "army:" + to_string(currentPlayer + 1);
@@ -107,18 +107,18 @@ void FileReader::visit(Game *game) {
             if(currentPlayer > 0) {
                 players[currentPlayer - 1]->setNewParamedic(*newP);
             }
-            game->getArea().addNewSoldier(*newP);
+            game->getMap().addSoldier(*newP);
         } else if(current == "Armor") {
             Point2d* location = locationToPoint(vec[3]);
             Armor* armor_name = getArmor(vec[1], vec[2]);
-            game->getArea().addNewArmor(*location, *armor_name);
+            game->getMap().addArmor(*location, *armor_name);
         } else if(current == "weapon") {
             Point2d* location = locationToPoint(vec[2]);
             Weapon* weapon_name = getWeapon(vec[1]);
-            game->getArea().addNewWeapon(*location,*weapon_name);
+            game->getMap().addWeapon(*location,*weapon_name);
         }else if(current == "solid") {
             Solid* solid = new Solid(*locationToPoint(vec[4]), vec[1], stoi(vec[2]), stoi(vec[3]));
-            game->getArea().addNewSolid(*solid);
+            game->getMap().addSolid(*solid);
         } else {
             throw invalid_argument("invalid line");
         }
@@ -149,12 +149,12 @@ Weapon *FileReader::getWeapon(string type) {
     }
 }
 
-Armor* FileReader::getArmor(string type, string rate) {
+Armor* FileReader::getArmor(string type, string power) {
     if(type == "ShieldArmor") {
-        ShieldArmor* s = new ShieldArmor(stod(rate));
+        ShieldArmor* s = new ShieldArmor(stod(power));
         return s;
     } else if(type == "BodyArmor") {
-        BodyArmor* b = new BodyArmor(stod(rate));
+        BodyArmor* b = new BodyArmor(stod(power));
         return b;
     } else {
         throw invalid_argument("unknown armor");
@@ -164,6 +164,6 @@ Armor* FileReader::getArmor(string type, string rate) {
 Point2d *FileReader::locationToPoint(string location) const {
     size_t space = location.find(' ');
     double p1 = stoi(location.substr(1, space - 1));
-    double p2 = stoi(location.substr(space, location.length() - 2));
+    double p2 = stoi(location.substr(space, location.length() -space));
     return new Point2d(p1, p2);
 }
