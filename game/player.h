@@ -19,10 +19,14 @@ class Player {
 public:
 	Player(PlayerTypes type, int numSoldiers);
 	Player(PlayerTypes type, int numSoldiers, Strategy strategy);
+	inline Soldier**& getSoldiers() {
+		return _soldiers;
+	}
 	virtual ~Player();
 
 private:
-	Soldier* _soldiers;
+	Soldier** _soldiers;
 	PlayerTypes _type;
 	Strategy _strategy;
+	int _numSoldiers;
 };

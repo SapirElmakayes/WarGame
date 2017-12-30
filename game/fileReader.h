@@ -10,7 +10,7 @@ class FileReader {
 
 public:
     FileReader(std::string pathGame, std::string** pathPlayer);
-    void visit(Game *game);
+    void readFile(Game *game);
     void create_player(Player**& players, int& currentPlayer, std::string type, size_t& computer_players, size_t& human_players);
     Weapon* getWeapon(std::string type);
     Armor* getArmor(std::string type, std::string rate);

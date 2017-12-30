@@ -2,4 +2,18 @@
 
 #include "heavyWeapons.h"
 
-HeavyWeapons::HeavyWeapons (const Point2d location , double power) : Weapons(location, power) { }
+HeavyWeapons::HeavyWeapons() 
+	: Weapons() {
+}
+
+HeavyWeapons::HeavyWeapons(int power) 
+	: Weapons(power) {
+}
+
+std::string HeavyWeapons::toString() const {
+	return Weapons::toString() + "Heavy Weapons: ";
+}
+
+HeavyWeapons::~HeavyWeapons() {
+	
+}

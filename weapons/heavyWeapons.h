@@ -1,8 +1,12 @@
 #pragma once
 
-
 #include "weapons.h"
 
 class HeavyWeapons : public Weapons { 
-    HeavyWeapons(const Point2d& location ,double power);
+public:
+	HeavyWeapons();
+    HeavyWeapons(int power);
+    virtual int getPower() = 0;
+    virtual std::string toString() const;
+    virtual ~HeavyWeapons();
 };

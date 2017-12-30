@@ -2,7 +2,9 @@
 
 #include "armor.h"
 
-class BodyArmor : Public Armor {
-  BodyArmor();
-  BodyArmor(const Point& location, double degree);
+class BodyArmor : public Armor{
+public:
+  BodyArmor(const Point2d& location, double degree);
+  std::string toString() const;
+  ~BodyArmor();
 };

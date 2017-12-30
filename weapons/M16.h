@@ -4,11 +4,13 @@
 
 class M16 : public RegularWeapons {
 
-static int _ballForIter=1; 
-static double _power=50;
-
 public:
 	M16();
-	M16(const Point2d& location);
-
+	virtual int getPower() const;
+	virtual std::string toString() const;
+	virtual ~M16();
+	
+private:
+	static int _ballForIter = 1; 
+	static int _power = 50;
 };

@@ -3,12 +3,12 @@
 #include "../game/point2d.h"
 
 class Armor {
-
 public:
-	Armor();
-	Armor(const Point2d& location , double degree);
+	Armor(const Point2d& location, double degree);
+	virtual std::string toString() const;
+	virtual ~Armor();
 	
 protected:
-	double _degree;
 	Point2d _location;
+	double _degree;
 };

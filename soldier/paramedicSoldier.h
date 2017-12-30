@@ -4,13 +4,14 @@
 
 class ParamedicSoldier : public Soldier {
 
-static int _life=120;
-static int _radius=4;
-
 public:
-	ParamedicSoldier(const Point2d& location, std::string name);
+	ParamedicSoldier(const Point2d& location, const std::string& name);
 	void attack(const Point2d& attackdestination);
 	void toHandle();
+	virtual std::string toString() const;
+	~ParamedicSoldier();
 	
 private:
+	static constexpr int _startLife = 120;
+	static constexpr int _radius = 4;
 };

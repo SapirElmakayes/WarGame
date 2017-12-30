@@ -2,10 +2,10 @@
 #include "Armor.h"
 
 class ArmorLocation{
-  private:
-  Point2d location;
-  Armor * armor;
-  
-  ArmorLocation(const Point2d location,const Armor& armor);
-  
+public:
+  ArmorLocation(const Point2d& location, const Armor& armor);
+
+private:
+  Point2d _location;
+  Armor* _armor;
 };

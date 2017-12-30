@@ -4,11 +4,13 @@
 
 class UZI : public RegularWeapons {
 
-static int _ballForIter=3; 
-static double _power=40;
-
 public:
 	UZI();
-	UZI(const Point2d& location);
+	virtual int getPower() const;
+	virtual std::toString() const;
+	~UZI();
 
+private:
+	static int _ballForIter = 3; 
+	static int _power = 40;
 };

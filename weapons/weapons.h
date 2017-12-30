@@ -6,9 +6,11 @@ class Weapons {
 
 public:
 	Weapons();
-	Weapons(const Point2d& location , double power);
-	
+	Weapons(int power);
+	virtual int getPower() const = 0;
+	virtual std::string toString() const;
+	virtual ~Weapons() = 0;
+
 protected:
-	double _power;
-	Point2d _location;
+	int _power;
 };

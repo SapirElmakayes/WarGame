@@ -2,4 +2,17 @@
 
 #include "regularWeapons.h"
 
-UZI::UZI (const Point2d location , double power) : Weapons(location, power) { }
+UZI::UZI() {
+}
+
+int UZI::getPower() const {
+	return UZI::_power;
+}
+
+std::string UZI::toString() const {
+	return RegularWeapons::toString() + " UZI ";
+}
+
+UZI::~UZI() {
+	
+}

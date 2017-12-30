@@ -2,7 +2,14 @@
 
 #include "bodyArmor.h"
 
-BodyArmor::BodyArmor(){}
+BodyArmor::BodyArmor(const Point2d& location, double degree)
+	: Armor(location, degree) { 
+}
 
-BodyArmor::BodyArmor(const Point & location, double degree) : Armor(location, degree) { 
+std::string BodyArmor::toString() const {
+	return Armor::toString() + "BodyArmor ";
+}
+
+BodyArmor::~BodyArmor() {
+
 }

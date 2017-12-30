@@ -2,4 +2,18 @@
 
 #include "regularWeapons.h"
 
-RegularWeapons::RegularWeapons (const Point2d location , double power) : Weapons(location, power) { }
+RegularWeapons::RegularWeapons()
+	: Weapons() {
+}
+
+RegularWeapons::RegularWeapons(int power)
+	: Weapons(power) {
+}
+
+std::string RegularWeapons::toString() const {
+	return Weapons::toString() + "Regular Weapons: ";
+}
+
+RegularWeapons::~RegularWeapons() {
+
+}

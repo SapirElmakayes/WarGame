@@ -6,6 +6,7 @@ class Point2d {
 public:
 	Point2d(double x, double y);
 	Point2d(const Point2d& other);
+	std::string toString() const;
 
 	inline double getX() const {
 		return _x;
@@ -22,6 +23,7 @@ public:
 	inline void setY(double newY) {
 		_y = newY;
 	}
+	
 private:
 	double _x;
 	double _y;
